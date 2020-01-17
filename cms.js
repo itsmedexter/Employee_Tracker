@@ -5,6 +5,12 @@
 
 // How are you going to do it?
 // use keys from prompts to envoke functions?
+// Switch statments to envoke a certain function it belongs to
+// user input for selection
+// loop back to start
+
+
+
 
 
 var mysql = require("mysql");
@@ -12,7 +18,7 @@ var inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    port:3000,
+    port:3306,
     user: "root",
     password: "password",
     database: "employee_db"
@@ -51,46 +57,80 @@ function start() {
             ]
         })
     .then(answers => {
-        console.info("Answer: ", answers.list);
+        console.info("Answer: ", answers.choose);
+    switch (answers.choose) {
+        case "Add departments":
+            addingDepartments();
+        break;
+        case "Add roles":
+            addingRoles();
+
+    }    
     })    
+
 }
 
 
 // Adding Departments function
 function addingDepartments() {
     console.log("Inserting department.\n");
-    var query = connection.query(
-        "INSERT INTO department SET?",
-    {
-        name: input,
-    },
-    function(err, res) {
-        console.log(res.affectedRows + " department inserted!\n");
-// callback function?
-    }
-);
-console.log(query.sql);
+    inquirer.prompt({
+        name: "departmentName",
+        type: "input",
+        message: "Add a department"
+    }).then(answers => {
+        console.log("Answer: ", answers.departmentName)
+        // this runs after prompt
+        var query = connection.query(
+            "INSERT INTO department SET?",
+        {
+            name: answers.departmentName,
+        },
+        function(err, res) {
+            console.log(res.affectedRows + " department inserted!\n");
+    // callback function?
+    start()
+        }
+    );
+    }).catch(error => {
+        console.log(error);
+    })    
+        
+
+    
+// console.log(query.sql);
 }
 
 
 // Adding Roles function
-function addingDepartments() {
+function addingRoles() {
     console.log("Inserting roles.\n");
+    inquirer.prompt({
+        name: "roleName",
+        type: "input",
+        message: "Add a role"
+    }).then(answers => {
+        console.log("Answer: ", answers.roleName)
+        // this runs after prompt
     var query = connection.query(
         "INSERT INTO roles SET?",
     {
-        title: input,
+        title: answers.roleName,
     },
     function(err, res) {
         console.log(res.affectedRows + " role inserted!\n");
         // callback function?
+        start();
     }
 );
-console.log(query.sql);
+}).catch(error => {
+    console.log(error);
+})    
+// console.log(query.sql);
 }
 
 // Adding Employees function
-function addingDepartments() {
+function addingEmployees() {
     console.log("Inserting employee.\n");
     var query = connection.query(
         "INSERT INTO employee SET?",
@@ -150,8 +190,8 @@ function updateEmployeeRoles() {
             console.log(res.affectedRows + " employee roles updated!\n");
         //callback another function? 
         }
-    );
-
+);
+    }
 start();
 
 
@@ -175,27 +215,27 @@ start();
 
 
 
- // {
-            //     key:"addDepartments", 
-            //     value: "Add departments",
-            // },
-            // {   Key: "addRoles",
-            //     value: "Add roles",
-            // },
-            // {   
-            //     key: "addEmployees",
-            //     value: "Add employees",
-            // },
-            // {   Key: "viewDepartments",
-            //     value: "View departments",
-            // },
-            // {   key: "viewRoles",
-            //     value: "View roles",
-            // },
-            // {
-            //     key: "viewEmployees",
-            //     value: "View employees",
-            // },
-            // {   key: "updateEmployeeRoles",
-            //     value: "Update employee roles"
-            // }]
+//  {
+//                 key:"addDepartments", 
+//                 value: "Add departments",
+//             },
+//             {   Key: "addRoles",
+//                 value: "Add roles",
+//             },
+//             {   
+//                 key: "addEmployees",
+//                 value: "Add employees",
+//             },
+//             {   Key: "viewDepartments",
+//                 value: "View departments",
+//             },
+//             {   key: "viewRoles",
+//                 value: "View roles",
+//             },
+//             {
+//                 key: "viewEmployees",
+//                 value: "View employees",
+//             },
+//             {   key: "updateEmployeeRoles",
+//                 value: "Update employee roles"
+//             }]
