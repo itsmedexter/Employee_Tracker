@@ -64,6 +64,19 @@ function start() {
         break;
         case "Add roles":
             addingRoles();
+        break;
+        case "Add employees":
+        addingEmployees();
+        break;
+        case "View departments":
+        viewDepartments();
+        break;
+        case "View roles":
+        viewRoles();
+        break;
+        case "View employees":
+        viewEmployees();
+        break;
 
     }    
     })    
@@ -132,19 +145,29 @@ function addingRoles() {
 // Adding Employees function
 function addingEmployees() {
     console.log("Inserting employee.\n");
+    inquirer.prompt({
+        name: "employeeName",
+        type: "input",
+        message: "Add an employee"
+    }).then(answers => {
+        console.log("Answer: ", answers.employeeName)
+    
+
     var query = connection.query(
         "INSERT INTO employee SET?",
     {
-        first_name: input,
-        last_name: input,
+        first_name: answers.employeeName,
+        last_name: answers.employeeName,
     },
     function(err, res) {
-        console.log(res.affectedRows + " role inserted!\n");
+        console.log(res.affectedRows + " employee inserted!\n");
         // callback function?
+        start();
     }
 );
-console.log(query.sql);
-}
+}).catch(error => {
+    console.log(error);
+})    }
 
 
 // View Department function
@@ -153,6 +176,7 @@ function viewDepartments() {
         if (err) throw err;
         console.log(res);
         //callback another function?
+        start();
     });
 }
 
@@ -162,6 +186,7 @@ function viewRoles() {
         if (err) throw err;
         console.log(res);
         //callback another function?
+        start();
     });
 }
 
@@ -171,7 +196,7 @@ function viewEmployees() {
         if (err) throw err;
         console.log(res);
         //callback another function? 
-
+start();
     });
 }
 
