@@ -1,135 +1,40 @@
-# Unit 12 MySQL Homework: Employee Tracker
+# Unit 12: Employee Tracker
 
-Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. Often these interfaces are known as **C**ontent **M**anagement **S**ystems. In this homework assignment, your challenge is to architect and build a solution for managing a company's employees using node, inquirer, and MySQL.
+Employee Tracker was created with Javascript, Node Js, Mysql, and Inquirer. When run in the command-line, the user is prompt with a message "What would you like to do?" with a series of choices. The user then can Add: departments, roles, employees; View: departments, roles, employees; and update employee roles.
 
-## Instructions
+## Take aways! 
+![Getting Started](Xxxxxxxxxx xxxxxx)
 
-Design the following database schema containing three tables:
-
-![Database Schema](Assets/schema.png)
-
-* **department**:
-
-  * **id** - INT PRIMARY KEY
-  * **name** - VARCHAR(30) to hold department name
-
-* **role**:
-
-  * **id** - INT PRIMARY KEY
-  * **title** -  VARCHAR(30) to hold role title
-  * **salary** -  DECIMAL to hold role salary
-  * **department_id** -  INT to hold reference to department role belongs to
-
-* **employee**:
-
-  * **id** - INT PRIMARY KEY
-  * **first_name** - VARCHAR(30) to hold employee first name
-  * **last_name** - VARCHAR(30) to hold employee last name
-  * **role_id** - INT to hold reference to role employee has
-  * **manager_id** - INT to hold reference to another employee that manager of the current employee. This field may be null if the employee has no manager
   
-Build a command-line application that at a minimum allows the user to:
 
-  * Add departments, roles, employees
+### Prerequisites
 
-  * View departments, roles, employees
+From repository, (https://github.com/itsmedexter/unit12_Employee_Tracker), download cms.js, employeeSchema.sql, package-lock.json. Use Command-line or Terminal, go to the directory where you downloaded the files to. In the command line, type "npm install -y", this looks at the package-lock.json  and install the correct packages to run this program. After the installation, in the command line, make sure you are still in the same directory where "cms.js" is located, type "node cms.js". This should run the program and give you a prompt on what to do. 
 
-  * Update employee roles
+## Built With
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3)
+* [MySql] (https://www.npmjs.com/package/mysql)
+* [console.table](https://www.npmjs.com/package/console.table)
+* [NodeJs] (https://nodejs.org/en/about/)
+* [NPM] (https://www.npmjs.com/)
 
-Bonus points if you're able to:
-
-  * Update employee managers
-
-  * View employees by manager
-
-  * Delete departments, roles, and employees
-
-  * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-
-We can frame this challenge as follows:
-
-```
-As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company
-So that I can organize and plan my business
-```
-
-How do you deliver this? Here are some guidelines:
-
-* Use the [MySQL](https://www.npmjs.com/package/mysql) NPM package to connect to your MySQL database and perform queries.
-
-* Use [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3) NPM package to interact with the user via the command-line.
-
-* Use [console.table](https://www.npmjs.com/package/console.table) to print MySQL rows to the console. There is a built-in version of `console.table`, but the NPM package formats the data a little better for our purposes.
-
-* You may wish to have a separate file containing functions for performing specific SQL queries you'll need to use. Could a constructor function or a class be helpful for organizing these?
-
-* You will need to perform a variety of SQL JOINS to complete this assignment, and it's recommended you review the week's activities if you need a refresher on this.
-
-![Employee Tracker](Assets/employee-tracker.gif)
-
-### Hints
-
-* You may wish to include a `seed.sql` file to pre-populate your database. This will make development of individual features much easier.
-
-* Focus on getting the basic functionality completed before working on more advanced features.
-
-* Review the week's activities for a refresher on MySQL.
-
-* Check out [SQL Bolt](https://sqlbolt.com/) for some extra MySQL help.
-
-## Minimum Requirements
-
-* Functional application.
-
-* GitHub repository with a unique name and a README describing the project.
-
-* The command-line application should allow users to:
-
-  * Add departments, roles, employees
-
-  * View departments, roles, employees
-
-  * Update employee roles
-
-## Bonus
-
-* The command-line application should allow users to:
-
-  * Update employee managers
-
-  * View employees by manager
-
-  * Delete departments, roles, and employees
-
-  * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
+## Deployed Link
+* No direct link, please see "Prerequisites" above on how to run "cms.js".
 
 
-## Submission on BCS
+## Authors
+Dexter Valencia 
 
-You are required to submit the following:
+- [Link to Employee Tracker repository](https://github.com/itsmedexter/unit12_Employee_Tracker)
+- [Link to Github](https://github.com/itsmedexter)
+- [Link to LinkedIn](https://www.linkedin.com/in/dextervalencia/)
 
-* The URL of the GitHub repository
+## License
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+This project is licensed under the MIT License 
+
+## Acknowledgments
+
+* Thanks to Kerwin guiding/helping me link my prompts to my functions.  
