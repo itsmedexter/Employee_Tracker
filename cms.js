@@ -192,11 +192,11 @@ function viewRoles() {
 
 // View Employees function
 function viewEmployees() {
-    connection.query("SELECT first_name FROM employee_db.employee", function(err, res) {
+    connection.query("SELECT first_name, last_name FROM employee_db.employee", function(err, res) {
         if (err) throw err;
         console.log(res);
         //callback another function? 
-start();
+            start();
     });
 }
 
