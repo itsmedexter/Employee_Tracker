@@ -4,7 +4,8 @@ Employee Tracker was created with Javascript, Node Js, Mysql, and Inquirer. When
 
 ## Take aways! 
 ![OMG](Assets/prompts.jpg)
-This was driving me mad! Two prompts for one ask. For adding "First and Last Name" I had the syntax correct. The only thing I didn't do is put it in an array. The array contains the two questions.
+
+This was driving me mad! Two prompts for one ask. For adding "First and Last Name" I had the syntax correct. The only thing I didn't do is put it in an array, I was missing []. The array contains the two questions.
 
 
   
