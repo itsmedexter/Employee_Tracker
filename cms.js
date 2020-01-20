@@ -12,7 +12,7 @@
 
 
 
-
+var logo = require('asciiart-logo')
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 
@@ -23,6 +23,21 @@ var connection = mysql.createConnection({
     password: "password",
     database: "employee_db"
 });
+
+console.log(
+    logo({
+        name: "Employee Tracker",
+        font: 'Chunky',
+        lineChars: 10,
+        padding: 2,
+        margin: 3,
+        borderColor: 'white',
+        logoColor: 'magenta',
+        textColor: 'bold-yellow',
+    })
+    .emptyLine()
+    .render()
+);
 
 function start() {
     inquirer
@@ -181,7 +196,7 @@ function addingEmployee() {
 function viewDepartments() {
     connection.query("SELECT name FROM employee_db.department", function(err, res) {
         if (err) throw err;
-        console.log(res);
+        console.table(res);
         //callback another function?
         start();
     });
@@ -191,7 +206,7 @@ function viewDepartments() {
 function viewRoles() {
     connection.query("SELECT title FROM employee_db.roles", function(err, res) {
         if (err) throw err;
-        console.log(res);
+        console.table(res);
         //callback another function?
         start();
     });
@@ -201,7 +216,7 @@ function viewRoles() {
 function viewEmployees() {
     connection.query("SELECT first_name, last_name FROM employee_db.employee", function(err, res) {
         if (err) throw err;
-        console.log(res);
+        console.table(res);
         //callback another function? 
             start();
     });
@@ -213,7 +228,7 @@ function updateEmployeeRoles() {
     connection.query ("SELECT first_name, last_name, title FROM employee JOIN roles ON employee.id = roles.id",
         function(err, res) {
             if (err) throw err;
-            console.log(res);
+            console.table(res);
         //callback another function? 
         start();
         });
