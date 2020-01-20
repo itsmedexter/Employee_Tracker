@@ -31,15 +31,15 @@ function start() {
             type: "list",
             message: "What would you like to do?",
             choices: [{
-                 key:"addDepartments", 
-                value: "Add departments",
+                 key:"addDepartment", 
+                value: "Add a department",
             },
-            {   Key: "addRoles",
-                value: "Add roles"
+            {   Key: "addRole",
+                value: "Add a role"
             },
             {   
                 key: "addEmployees",
-                value: "Add employees",
+                value: "Add a employee",
             },
             {   Key: "viewDepartments",
                 value: "View departments",
@@ -59,14 +59,14 @@ function start() {
     .then(answers => {
         console.info("Answer: ", answers.choose);
     switch (answers.choose) {
-        case "Add departments":
-            addingDepartments();
+        case "Add a department":
+            addingDepartment();
         break;
-        case "Add roles":
-            addingRoles();
+        case "Add a role":
+            addingRole();
         break;
-        case "Add employees":
-        addingEmployees();
+        case "Add a employee":
+        addingEmployee();
         break;
         case "View departments":
         viewDepartments();
@@ -85,7 +85,7 @@ function start() {
 
 
 // Adding Departments function
-function addingDepartments() {
+function addingDepartment() {
     console.log("Inserting department.\n");
     inquirer.prompt({
         name: "departmentName",
@@ -116,7 +116,7 @@ function addingDepartments() {
 
 
 // Adding Roles function
-function addingRoles() {
+function addingRole() {
     console.log("Inserting roles.\n");
     inquirer.prompt({
         name: "roleName",
@@ -143,21 +143,27 @@ function addingRoles() {
 }
 
 // Adding Employees function
-function addingEmployees() {
+function addingEmployee() {
     console.log("Inserting employee.\n");
-    inquirer.prompt({
-        name: "employeeName",
+    inquirer.prompt([{
+        name: "employeeFirstName",
         type: "input",
-        message: "Add an employee"
-    }).then(answers => {
-        console.log("Answer: ", answers.employeeName)
-    
+        message: "Add an employee's first name"
+    },
+    {
+        name: "employeeLastName",
+        type: "input",
+        message: "Add an employee's last name"
+    }]
+    ).then(answers => {
+        console.log("Answer: ", answers.employeeFirstName);
+        console.log("Answer: ", answers.employeeLastName);
 
     var query = connection.query(
         "INSERT INTO employee SET?",
     {
-        first_name: answers.employeeName,
-        last_name: answers.employeeName,
+        first_name: answers.employeeFirstName,
+        last_name: answers.employeeLastName,
     },
     function(err, res) {
         console.log(res.affectedRows + " employee inserted!\n");
