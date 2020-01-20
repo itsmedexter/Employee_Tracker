@@ -77,7 +77,8 @@ function start() {
         case "View employees":
         viewEmployees();
         break;
-
+        case "Update employee roles":
+        updateEmployeeRoles();
     }    
     })    
 
@@ -207,26 +208,17 @@ function viewEmployees() {
 }
 
 
-// Update employee roles, employee: first_name last_name role_id, roles: title, inner join
+// Update employee roles, employee: first_name last_name role_id, roles: title, join
 function updateEmployeeRoles() {
-    console.log("Updating employee roles...\n");
-    var query = connection.query (
-        "UPDATE roles WHERE title",
-        [
-            {
-            title: input,
-            }   
-        ],
+    connection.query ("SELECT first_name, last_name, title FROM employee JOIN roles ON employee.id = roles.id",
         function(err, res) {
-            console.log(res.affectedRows + " employee roles updated!\n");
+            if (err) throw err;
+            console.log(res);
         //callback another function? 
-        }
-);
+        start();
+        });
     }
 start();
-
-
-
 
 
 
