@@ -3,7 +3,9 @@
 Employee Tracker was created with Javascript, Node Js, Mysql, and Inquirer. When run in the command-line, the user is prompt with a message "What would you like to do?" with a series of choices. The user then can Add: departments, roles, employees; View: departments, roles, employees; and update employee roles.
 
 ## Take aways! 
-![Getting Started](Xxxxxxxxxx xxxxxx)
+![OMG](Assets/prompts.jpg)
+This was driving me mad! Two prompts for one ask. For adding "First and Last Name" I had the syntax correct. The only thing I didn't do is put it in an array. The array contains the two questions.
+
 
   
 
