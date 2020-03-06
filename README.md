@@ -1,4 +1,4 @@
-# Unit 12: Employee Tracker
+# Employee Tracker
 
 ![Sample](Assets/unit12_gif.gif)
 
