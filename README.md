@@ -2,7 +2,7 @@
 
 ![Sample](Assets/unit12_gif.gif)
 
-Employee Tracker was created with Javascript, Node Js, Mysql, and Inquirer. When run in the command-line, the user is prompt with a message "What would you like to do?" with a series of choices. The user then can Add: departments, roles, employees; View: departments, roles, employees; and update employee roles.
+Employee Tracker was created with Javascript, Node Js, Mysql, and Inquirer. When run in the command-line, the user is prompt with a message "What would you like to do?" with a series of choices. The user then can add: departments, roles, employees; View: departments, roles, employees; and update employee roles.
 
 ## Take aways! 
 ![OMG](Assets/prompts.jpg)
