@@ -39,4 +39,4 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Thanks to Kerwin guiding/helping me link my prompts to my functions.  
+* Thanks to Kerwin for guiding/helping me with prompts to work properly.  
